@@ -1,0 +1,50 @@
+doctype html
+html lang="ru"
+  head
+    meta charset="utf-8"
+    title Diving into AngularJS
+    meta name="viewport" content="width=1274, user-scalable=no"
+    - if production?
+       = include_jquery(env: :production)
+    - if development?
+      link rel="stylesheet" href="/style.css"
+      - slides_styles do |file|
+        link rel="stylesheet" href="/#{ file }"
+    - else
+      style
+        = assets['style.css']
+        - slides_styles do |file|
+          = assets[file]
+    - unless development?
+      = include_statistics
+  body.list
+
+    header.caption
+      h1 Diving into AngularJS
+      p
+        | <a href="http://google.com/+AndreyKrivko" target="_blank">Андрей Кривко</a>,
+          <a href="http://ltst.ru" target="_blank">Live Typing</a>
+
+    - slides.each_with_index do |slide, i|
+      section.slide id=(i + 1) class="#{slide.name}-slide#{slide.types}"
+        div
+          - if slide.title
+            h2= slide.title
+          = slide.html
+
+    .progress
+      div
+
+    - if development?
+      link rel="stylesheet" href="/fonts.css"
+    - else
+      style= assets['fonts.css']
+
+    - if development?
+      script src="/jquery.js"
+      script src="/shower.js"
+    - else
+      script
+        - if standalone?
+          = assets['jquery.js']
+        = assets['shower.js']

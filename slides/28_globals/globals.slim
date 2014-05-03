@@ -1,0 +1,15 @@
+- title '<strong>globals</strong>'
+
+pre
+  code function MyClass () {
+  code   this.getEntities = function () {
+  code     global.xhr({
+  code       method: '...',
+  code       url: '...',
+  code       complete: function (response) { ... }
+  code     })
+  code   }
+  code }
+
+div.bad-sign.next
+  | :(

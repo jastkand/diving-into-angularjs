@@ -9,11 +9,9 @@ pre.smaller
   code = "    { <mark>name</mark>: 'Hubot', <mark>position</mark>: 'Github staffy' },"
   code = "    { <mark>name</mark>: 'Mary Poppins', <mark>position</mark>: 'Angular staffy' }"
   code   ];
-  code
   code   <mark>$scope.addMember</mark> = function () {
   code     <mark>$scope.staff</mark>.push({ name: $scope.name, position: $scope.position })
   code   }
-  code
   code   <mark>$scope.removeMember</mark> = function (<mark>member</mark>) {
   code     <mark>$scope.staff</mark>.splice(<mark>$scope.staff</mark>.indexOf(<mark>member</mark>), 1)
   code   }

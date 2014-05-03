@@ -262,8 +262,7 @@ end
 
 desc 'Prepare commit to GitHub Pages'
 task :deploy => :build do
-  sh ['git checkout gh-pages',
-      'git rm index.html',
+  sh ['git checkout -B gh-pages',
       'git rm -r slides/',
       'git rm -r vendor/',
       'cp -r public/* ./',

@@ -3,7 +3,7 @@ p
 
 pre
   code app<mark>.factory</mark>(<mark>'Staff'</mark>, [<mark>'$resource'</mark>, function ($resource) {
-  code   $resource('/staff/:id', { id: '@id' }, {
+  code   return $resource('/staff/:id', { id: '@id' }, {
   code     <mark>query</mark>: { method: 'GET', isArray: true },
   code     <mark>save</mark>: { method: 'POST' },
   code     <mark>update</mark>: { method: 'PATCH' },

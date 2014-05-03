@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <style type="text/css">
+      input {
+        padding: 4px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        outline: none;
+      }
+
+      h1 {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body ng-app="SimpleApp">
+    <div ng-controller="MainCtrl">
+      <input type="text" ng-model="search" placeholder="Найти" />
+      <ul>
+        <li ng-repeat="member in staff | filter:search:strict">
+          {{ member.name }} – {{ member.position }}
+          <a href="#" ng-click="removeMember(member)">Удалить</a>
+        </li>
+      </ul>
+      <form ng-submit="addMember()">
+        <input type="text" ng-model="name" placeholder="Введи свое имя">
+        <input type="text" ng-model="position" placeholder="Введи свою должность">
+        <input type="submit" value="Добавить">
+      </form>
+    </div>
+    <script src="app-2.js"></script>
+  </body>
+</html>

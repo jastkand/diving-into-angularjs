@@ -142,6 +142,11 @@ class Builder
     "<img src=\"#{ uri }\" #{ attrs } />"
   end
 
+  def link_to(text, url, attrs = {})
+    attrs = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
+    "<a href=\"#{ url }\" #{ attrs }>#{text}</a>"
+  end
+
   def escape(text)
     HTML.new(text)
   end
